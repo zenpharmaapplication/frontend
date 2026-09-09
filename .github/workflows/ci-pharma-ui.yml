@@ -205,7 +205,7 @@ jobs:
 
       - name: Update image tag — DEV
         env:
-          IMAGE_TAG: ${{ needs.docker-build-push.outputs.image_tag }}
+          IMAGE_TAG: ${{ needs.docker.outputs.image_tag }}
         run: |
           yq e ".image.tag = \"${IMAGE_TAG}\"" -i \
             "_gitops/envs/dev/values-pharma-ui.yaml"
